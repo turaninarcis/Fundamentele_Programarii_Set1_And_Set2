@@ -12,23 +12,13 @@ namespace Fundamentele_Programarii
 {
     public partial class Setul_1 : Form
     {
+        private static int index;
         public Setul_1()
         {
             InitializeComponent();
             AdaugaButoaneInPanou();
         }
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-
-        }
-
+        
 
         private void AdaugaButoaneInPanou()
         {
@@ -120,10 +110,32 @@ namespace Fundamentele_Programarii
         private void OnButtonPress(object sender, System.EventArgs e)
         {
             Button button = sender as Button;
-            int index = button.TabIndex;
+            index = button.TabIndex;
             Problema_x paginaProblema = new Problema_x(index);
             paginaProblema.Show();
 
         }
+
+        public static int ReturnIndexOfClickedButton()
+        {
+            return index;
+        }
+
+
+
+
+        #region unusedMethods
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+
+        }
+        #endregion
+
     }
 }
