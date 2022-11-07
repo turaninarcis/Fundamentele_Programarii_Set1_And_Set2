@@ -30,7 +30,7 @@ namespace Fundamentele_Programarii
 
         private void Setul2_Click(object sender, EventArgs e)
         {
-
+            OpenSet2();
         }
 
 
@@ -43,6 +43,11 @@ namespace Fundamentele_Programarii
 
         }
 
+        private void OpenSet2()
+        {
+            Setul_2 setul2 = new Setul_2();
+            setul2.ShowDialog();
+        }
 
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Fundamentele_Programarii
 {
-    partial class Problema_x
+    partial class Problema_Set_1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Problema_x));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Problema_Set_1));
             this.Enuntul_Problemei = new System.Windows.Forms.Label();
             this.Date_Intrare = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +49,7 @@
             this.Enuntul_Problemei.Size = new System.Drawing.Size(810, 100);
             this.Enuntul_Problemei.TabIndex = 0;
             this.Enuntul_Problemei.Text = resources.GetString("Enuntul_Problemei.Text");
+            this.Enuntul_Problemei.Click += new System.EventHandler(this.Enuntul_Problemei_Click);
             // 
             // Date_Intrare
             // 
@@ -101,7 +102,7 @@
             this.Buton_Input.UseVisualStyleBackColor = true;
             this.Buton_Input.Click += new System.EventHandler(this.Buton_Input_Click);
             // 
-            // Problema_x
+            // Problema_Set_1
             // 
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(834, 461);
@@ -111,7 +112,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Date_Intrare);
             this.Controls.Add(this.Enuntul_Problemei);
-            this.Name = "Problema_x";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "Problema_Set_1";
             this.Load += new System.EventHandler(this.Problema_x_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

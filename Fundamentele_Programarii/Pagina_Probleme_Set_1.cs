@@ -11,10 +11,12 @@ using System.Windows.Forms;
 
 namespace Fundamentele_Programarii
 {
-    public partial class Problema_x : Form
+    public partial class Problema_Set_1 : Form
     {
+        static Random rnd = new Random();
+        int NumberToGuess = rnd.Next(1, 1024);
         static bool aReusit;
-        public Problema_x(int indexulButonului)
+        public Problema_Set_1(int indexulButonului)
         {
             InitializeComponent();
             Enuntul_Problemei.Text = Setul_1.SelecteazaEnuntProblema(indexulButonului);            
@@ -62,62 +64,77 @@ namespace Fundamentele_Programarii
                     }
                 case 7:
                     {
+                        P7();
                         break;
                     }
                 case 8:
                     {
+                        P8();
                         break;
                     }
                 case 9:
                     {
+                        P9();
                         break;
                     }
                 case 10:
                     {
+                        P10();
                         break;
                     }
                 case 11:
                     {
+                        P11();
                         break;
                     }
                 case 12:
                     {
+                        P12();
                         break;
                     }
                 case 13:
                     {
+                        P13();
                         break;
                     }
                 case 14:
                     {
+                        P14();
                         break;
                     }
                 case 15:
                     {
+                        P15();
                         break;
                     }
                 case 16:
                     {
+                        P16();
                         break;
                     }
                 case 17:
                     {
+                        P17();
                         break;
                     }
                 case 18:
                     {
+                        P18();
                         break;
                     }
                 case 19:
                     {
+                        P19();
                         break;
                     }
                 case 20:
                     {
+                        P20();
                         break;
                     }
                 case 21:
                     {
+                        P21();
                         break;
                     }
                 default:
@@ -142,7 +159,7 @@ namespace Fundamentele_Programarii
             { 
                 (a, b) = IntroducereDate(a, b);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return;
             }
@@ -159,7 +176,7 @@ namespace Fundamentele_Programarii
             {
                 (a,b,c) = IntroducereDate(a, b,c);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return;
             }
@@ -191,7 +208,7 @@ namespace Fundamentele_Programarii
             { 
             (n, k) = IntroducereDate(n, k);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return;
             }
@@ -208,13 +225,13 @@ namespace Fundamentele_Programarii
             {
                 a = IntroducereDate(a);
             }
-            catch (Exception e) { return; }
+            catch (Exception) { return; }
 
-            if (a % 4 == 0 && a % 100 != 0 || a % 400 == 0)
+            if (EsteAnBisect(a))
                 Date_Iesire.Text = $"{a} este an bisect";
             else Date_Iesire.Text = $"{a} nu este an bisect";
         }
-        #endregion
+
 
         private void P5()
         {
@@ -223,7 +240,7 @@ namespace Fundamentele_Programarii
             {
                 (n, k) = IntroducereDate(n, k);
             }
-            catch (Exception e) { return; }
+            catch (Exception) { return; }
             int n2 = n;
 
             for(int i = 1; i < k; i++)
@@ -243,7 +260,7 @@ namespace Fundamentele_Programarii
             {
                 (a, b, c) = IntroducereDate(a, b, c);
             }
-            catch(Exception e) { return; }
+            catch(Exception) { return; }
 
             if(a<0||b<0||c<0)
             {
@@ -260,7 +277,250 @@ namespace Fundamentele_Programarii
 
         }
 
+        private void P7()
+        {
+            int a, b,aux;
+            a = b = 1;
+            try { (a, b) = IntroducereDate(a, b); }
+            catch(Exception) { return; }
+            aux = a;
+            a = b;
+            b = aux;
+            Date_Iesire.Text = $"In (a) s-a stocat valoarea {a} iar in (b) s-a stocat valoarea {b}.";
+        }
 
+
+        private void P8()
+        {
+            int a, b;
+            a = b = 1;
+            try { (a, b) = IntroducereDate(a, b); }
+            catch (Exception) { return; }
+            a = a + b;
+            b = a - b;
+            a = a - b;
+            Date_Iesire.Text = $"In (a) s-a stocat valoarea {a} iar in (b) s-a stocat valoarea {b}.";
+        }
+
+        private void P9()
+        {
+            int n;
+            n = 1;
+            try { n = IntroducereDate(n); }
+            catch (Exception) { return; }
+
+            Date_Iesire.Text = "";
+            for (int i = 2; i <= n / 2; i++)
+                if (n % i == 0)
+                    Date_Iesire.Text += $"{i} ";
+        }
+
+        private void P10()
+        {
+            int n;
+            n = 1;
+            try { n = IntroducereDate(n); }
+            catch(Exception) { return; }
+            bool isPrime = true;
+            if(n<2) isPrime = false;
+            else if(n==2) isPrime = true;
+            else if(n%2==0) isPrime = false;
+            else
+                for(int i = 3; i*i < n; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+
+            if (isPrime)
+                Date_Iesire.Text = $"Numarul {n} este prim";
+            else Date_Iesire.Text = $"Numarul {n} nu este prim";
+        }
+
+        private void P11()
+        {
+            int n, oglindit=0;
+            n = 1;
+            try { n = IntroducereDate(n); }
+            catch (Exception) { return; }
+            oglindit = Oglindit(n);
+
+            Date_Iesire.Text = $"Cifrele numarului n in ordine inversa sunt: {oglindit}";
+        }
+
+        private void P12()
+        {
+            int n, a, b;
+            a = b = n = 1;
+            try { (n, a, b) = IntroducereDate(n, a, b); }
+            catch(Exception) { return; }
+            int nrDivizibile = 0;
+
+            for(int i =a;i<b;i++)
+            {
+                if (n % i == 0)
+                {
+                    nrDivizibile++;
+                }
+            }
+            Date_Iesire.Text += $"In intervalul [{a},{b}] sunt {nrDivizibile} numere divizibile cu {n}";
+        }
+        
+        private void P13()
+        {
+            int y1, y2,nrAniBisecti=0;
+            y1 = y2 = 1;
+            
+            try { (y1, y2) = IntroducereDate(y1, y2); }
+            catch(Exception) { return; }
+            for(int i = y1;i<=y2;i++)
+            {
+                if(EsteAnBisect(i))
+                    nrAniBisecti++;
+            }
+            Date_Iesire.Text = $"Intre anul {y1} si anul {y2} sunt {nrAniBisecti} ani bisecti";
+        }
+
+        private void P14()
+        {
+            int n = 1;
+            try { n = IntroducereDate(n); }
+            catch(Exception) { return; }
+
+
+            if (n == Oglindit(n))
+                Date_Iesire.Text = $"Numarul {n} este palindrom";
+            else Date_Iesire.Text = $"Numarul {n} nu este palindrom";
+
+        }
+        
+        private void P15()
+        {
+            int a, b, c;
+            a = b = c = 1;
+            try { (a, b, c) = IntroducereDate(a, b, c); }
+            catch (Exception) { return; }
+            int min, max;
+            min = Math.Min(a, Math.Min(b, c));
+            max = Math.Max(a, Math.Max(b, c));
+            Date_Iesire.Text = $"Numerele in ordine crescatoare sunt: {min}, {a+b+c-min-max}, {max}";
+
+        }
+
+        private void P16()
+        {
+            int a, b, c, d, e,aux;
+            a = b = c = d = e = 1;
+            try { (a, b, c, d, e) = IntroducereDate(a, b, c, d, e); }
+            catch(Exception) { return; }
+            bool suntAmestecate = true;
+
+            while(suntAmestecate)
+            {
+                suntAmestecate = false;
+                if (a > b) { suntAmestecate = true; aux = a;a = b;b = aux; }
+                if(b>c) { suntAmestecate = true; aux = b;b = c;c = aux; }
+                if (c > d) { suntAmestecate = true;aux = c;c = d;d = aux; }
+                if(d>e) { suntAmestecate = true; aux = d;d = e;e = aux; }
+            }
+
+            Date_Iesire.Text = $"Numerele in ordine crescatoare sunt:{a}, {b}, {c}, {d}, {e}";
+        }
+
+        private void P17()
+        {
+            int a, b,a1,b1;
+            a = b = 1;
+            try { (a, b) = IntroducereDate(a, b); }
+            catch (Exception) { return; }
+            a1 = a; b1 = b;
+            while(a1!=0&& b1!=0)
+            {
+                if (a1 > b1) { a1 = a1 - b1; }
+                else b1 = b1 - a1;
+            }
+            Date_Iesire.Text = $"Cel mai mare divizor comun al numerelor {a} si {b} este {a1+b1} iar cel mai mic multiplu comun este {(a*b)/(a1+b1)}";
+        }
+
+        private void P18()
+        {
+            int aparitiiFactorPrim;
+            int n = 1;
+            try { n = IntroducereDate(n); }
+            catch (Exception) { return; }
+            int n2 = n;
+            int i = 2;
+            string descompunere = "";
+            while (n2!=1)
+            {
+                aparitiiFactorPrim = 0;
+                while(n2%i==0)    
+                {
+                    aparitiiFactorPrim++;
+                    n2 /= i;
+
+                }
+                if(aparitiiFactorPrim!=0)
+                {
+                    descompunere += $"x {i}^{aparitiiFactorPrim} ";
+                }
+                i++;
+            }
+
+            Date_Iesire.Text = $"Descompunerea in factori primi a numarului {n} este: {descompunere.Substring(1)}";
+        }
+
+        private void P19()
+        {
+            int n = 1;
+            try { n = IntroducereDate(n); }
+            catch(Exception) { return; }
+            int[] cifre = new int[10];
+            int n2 = n;
+            int nrdistincte = 0;
+            while(n2!=0)
+            {
+                cifre[n2%10]++;
+                n2 /= 10;
+            }
+            for(int i = 0; i<10; i++)
+            {
+                if (cifre[i] != 0) nrdistincte++;
+            }
+            if (nrdistincte == 2)
+                Date_Iesire.Text = $"Numarul {n} este format doar din doua cifre distincte care se pot repeta";
+            else Date_Iesire.Text = $"Numarul {n} nu este format doar din doua cifre distincte care se pot repeta";
+        }
+        private void P20()
+        {
+            int m, n;
+            m = n = 0;
+            try { (m, n) = IntroducereDate(m, n); }
+            catch(Exception) { return; }
+            double RezultatFractie = (double)m / n;
+            Date_Iesire.Text = $"{RezultatFractie}";
+        }
+        private void P21()
+        {
+            int n = 1;
+            try { n = IntroducereDate(n); }
+            catch (Exception) { return; }
+            if (n < NumberToGuess)
+                Date_Iesire.Text = "Numarul este mai mare";
+            else if (n == NumberToGuess) Date_Iesire.Text = "Ai ghicit numarul";
+            else if (n>NumberToGuess) Date_Iesire.Text = "Numarul este mai mic";
+            
+            
+        }
+        #endregion
+
+
+
+
+        #region methodeAjutatoare
         private int IntroducereDate(int a)
         {
             char[] despartitoare = { ' ', ';', ',' };
@@ -275,7 +535,7 @@ namespace Fundamentele_Programarii
                 a = int.Parse(numere[0]);
 
             }
-            catch (FormatException e)
+            catch (FormatException)
             {
                 ExceptionSentence("Trebuie introduse doar un numar");
             }
@@ -313,7 +573,7 @@ namespace Fundamentele_Programarii
                     b = int.Parse(numere[1]);
                     
                 }
-                catch(FormatException e)
+                catch(FormatException)
                 {
                 ExceptionSentence("Trebuie introduse doar numere");
                 }
@@ -351,7 +611,7 @@ namespace Fundamentele_Programarii
                 b = int.Parse(numere[1]);
                 c = int.Parse(numere[2]);
             }
-            catch (FormatException e)
+            catch (FormatException)
             {
                 ExceptionSentence("Trebuie introduse doar numere");
             }
@@ -371,7 +631,63 @@ namespace Fundamentele_Programarii
                 return (a, b, c);
             else throw new Exception();
         }
-        #region unusedMethods
+
+        private (int, int, int,int,int) IntroducereDate(int a, int b, int c,int d, int e)
+        {
+            char[] despartitoare = { ' ', ';', ',' };
+            aReusit = true;
+
+            try
+            {
+                string[] numere = Date_Intrare.Text.Split(despartitoare, StringSplitOptions.RemoveEmptyEntries);
+                if (numere.Length > 5)
+                    throw new IndexOutOfRangeException();
+
+                a = int.Parse(numere[0]);
+                b = int.Parse(numere[1]);
+                c = int.Parse(numere[2]);
+                d = int.Parse(numere[3]);
+                e = int.Parse(numere[4]);
+            }
+            catch (FormatException)
+            {
+                ExceptionSentence("Trebuie introduse doar numere");
+            }
+            catch (OverflowException)
+            {
+                ExceptionSentence($"Trebuie introduse numere mai mari decat {int.MinValue} si mai mici decat {int.MaxValue}");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                ExceptionSentence("Trebuie introduse cinci numere");
+            }
+            catch (Exception v)
+            {
+                ExceptionSentence(v.Message);
+            }
+            if (aReusit)
+                return (a, b, c,d,e);
+            else throw new Exception();
+        }
+
+        private bool EsteAnBisect(int a)
+        {
+            if (a % 4 == 0 && a % 100 != 0 || a % 400 == 0)
+                return true;
+            else return false;
+
+        }
+        private int Oglindit(int n)
+        {
+            int aux = 0;
+            int n2 = n;
+            while(n2>0)
+            {
+                aux = aux * 10 + n2 % 10;
+                n2 /= 10;
+            }
+            return aux;
+        }
 
         private void ExceptionSentence(string ExceptionString)
         {
@@ -379,6 +695,13 @@ namespace Fundamentele_Programarii
             Date_Intrare.Text = "";
             aReusit = false;
         }
+
+        #endregion
+
+
+        #region unusedMethods
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -406,7 +729,12 @@ namespace Fundamentele_Programarii
 
 
 
-       
+
         #endregion
+
+        private void Enuntul_Problemei_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

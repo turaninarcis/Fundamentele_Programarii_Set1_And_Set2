@@ -111,7 +111,7 @@ namespace Fundamentele_Programarii
         {
             Button button = sender as Button;
             index = button.TabIndex;
-            Problema_x paginaProblema = new Problema_x(index);
+            Problema_Set_1 paginaProblema = new Problema_Set_1(index);
             paginaProblema.Show();
 
         }
