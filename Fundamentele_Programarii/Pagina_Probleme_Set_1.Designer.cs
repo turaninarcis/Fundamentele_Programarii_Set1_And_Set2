@@ -88,6 +88,8 @@
             this.Date_Iesire.MinimumSize = new System.Drawing.Size(419, 59);
             this.Date_Iesire.Multiline = true;
             this.Date_Iesire.Name = "Date_Iesire";
+            this.Date_Iesire.ReadOnly = true;
+            this.Date_Iesire.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Date_Iesire.Size = new System.Drawing.Size(419, 59);
             this.Date_Iesire.TabIndex = 4;
             this.Date_Iesire.TextChanged += new System.EventHandler(this.Date_Iesire_TextChanged);

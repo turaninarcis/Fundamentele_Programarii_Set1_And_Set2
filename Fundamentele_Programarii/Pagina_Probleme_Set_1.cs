@@ -496,13 +496,62 @@ namespace Fundamentele_Programarii
         }
         private void P20()
         {
+            Date_Iesire.Text = "";
             int m, n;
             m = n = 0;
             try { (m, n) = IntroducereDate(m, n); }
             catch(Exception) { return; }
-            double RezultatFractie = (double)m / n;
-            Date_Iesire.Text = $"{RezultatFractie}";
-        }
+            double d;
+
+            int parteInt, parteFract;
+            parteInt = m / n; // 0
+            parteFract = m % n; // 13
+            Date_Iesire.Text += $"{parteInt}.";
+            int cifra, rest;
+            List<int> resturi = new List<int>();
+            List<int> cifre = new List<int>();
+            resturi.Add(parteFract);
+            bool periodic = false;
+            do
+            {
+                cifra = parteFract * 10 / n;
+                cifre.Add(cifra);
+                rest = parteFract * 10 % n;
+                if (!resturi.Contains(rest))
+                {
+                    resturi.Add(rest);
+                }
+                else
+                {
+                    periodic = true;
+                    break;
+                }
+                parteFract = rest;
+            } while (rest != 0);
+
+            if (!periodic)
+            {
+                foreach (var item in cifre)
+                {
+                    Date_Iesire.Text += item;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < resturi.Count; i++)
+                {
+                    if (resturi[i] == rest)
+                    {
+                        Date_Iesire.Text += "(";
+                    }
+                    Date_Iesire.Text += cifre[i]; ;
+                }
+                Date_Iesire.Text += ")" ;
+            }
+        
+
+
+    }
         private void P21()
         {
             int n = 1;

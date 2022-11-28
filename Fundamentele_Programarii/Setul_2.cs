@@ -57,8 +57,10 @@ namespace Fundamentele_Programarii
                     return "Calculati suma si produsul numerelor de la 1 la n. ";
                 case 4:
                     return "Se da o secventa de n numere. Determinati pe ce pozitie se afla in secventa un numara a." +
-                        "\r\nSe considera ca primul element din secventa este pe pozitia zero. Daca numarul nu se afla in secventa raspunsul va fi -1. ";
-                case 5: return "Cate elemente dintr-o secventa de n numere sunt egale cu pozitia pe care apar in secventa.\r\nSe considera ca primul element din secventa este pe pozitia 0. ";
+                        "\r\nSe considera ca primul element din secventa este pe pozitia zero. Daca numarul nu se afla in secventa raspunsul va fi -1. " +
+                        "\r\nPrimul element va reprezenta numarul a iar restul numerelor vor reprezenta secventa de numere";
+                case 5: 
+                    return "Cate elemente dintr-o secventa de n numere sunt egale cu pozitia pe care apar in secventa.\r\nSe considera ca primul element din secventa este pe pozitia 0. ";
                 case 6:
                     return "Se da o secventa de n numere. Sa se determine daca numerele din secventa sunt in ordine crescatoare. \r\n";
                 case 7:

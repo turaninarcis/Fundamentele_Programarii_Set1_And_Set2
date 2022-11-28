@@ -88,11 +88,15 @@
             // 
             // Date_Iesire
             // 
+            this.Date_Iesire.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Date_Iesire.Location = new System.Drawing.Point(12, 289);
-            this.Date_Iesire.MaximumSize = new System.Drawing.Size(419, 59);
+            this.Date_Iesire.MaximumSize = new System.Drawing.Size(810, 161);
             this.Date_Iesire.MinimumSize = new System.Drawing.Size(419, 59);
+            this.Date_Iesire.Multiline = true;
             this.Date_Iesire.Name = "Date_Iesire";
-            this.Date_Iesire.Size = new System.Drawing.Size(419, 59);
+            this.Date_Iesire.ReadOnly = true;
+            this.Date_Iesire.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Date_Iesire.Size = new System.Drawing.Size(810, 161);
             this.Date_Iesire.TabIndex = 5;
             this.Date_Iesire.TextChanged += new System.EventHandler(this.Date_Iesire_TextChanged);
             // 
