@@ -77,27 +77,27 @@ namespace Fundamentele_Programarii
                     }
                 case 11:
                     {
-                        //P11();
+                        P11();
                         break;
                     }
                 case 12:
                     {
-                        //P12();
+                        P12();
                         break;
                     }
                 case 13:
                     {
-                        //P13();
+                        P13();
                         break;
                     }
                 case 14:
                     {
-                        //P14();
+                        P14();
                         break;
                     }
                 case 15:
                     {
-                        //P15();
+                        P15();
                         break;
                     }
                 case 16:
@@ -127,9 +127,9 @@ namespace Fundamentele_Programarii
         {
             int nrPare = 0;
             int nr = 0;
-            foreach(string numar in Date_Intrare.Text.Split(' '))
+            foreach (string numar in Date_Intrare.Text.Split(' '))
             {
-                if(int.TryParse(numar,out nr)&&nr%2==0) nrPare++;
+                if (int.TryParse(numar, out nr) && nr % 2 == 0) nrPare++;
             }
             Date_Iesire.Text = nrPare.ToString();
         }
@@ -142,7 +142,7 @@ namespace Fundamentele_Programarii
                 if (int.TryParse(numar, out nr))
                 {
                     if (nr < 0) nrNeg++;
-                    else if(nr ==0) zeros++;
+                    else if (nr == 0) zeros++;
                     else positives++;
                 }
             }
@@ -155,11 +155,11 @@ namespace Fundamentele_Programarii
             ulong suma = 0;
             BigInteger produs = new BigInteger(1);
 
-            if (int.TryParse(Date_Intrare.Text, out nr)&&nr>=1)
+            if (int.TryParse(Date_Intrare.Text, out nr) && nr >= 1)
             {
-                for(int i =1;i<=nr;i++)
-                { suma+=(ulong)i;
-                  produs*=(BigInteger)i;
+                for (int i = 1; i <= nr; i++)
+                { suma += (ulong)i;
+                    produs *= (BigInteger)i;
                 }
             }
             else Date_Iesire.Text = "Introduceti un numar mai mare sau egal cu 1.";
@@ -173,12 +173,12 @@ namespace Fundamentele_Programarii
 
             if (!int.TryParse(Date_Intrare.Text.Split(' ')[0], out a))
             { Date_Iesire.Text = "Nu s-a putut introduce variabila a"; return; }
-            
+
             string numereText = Date_Intrare.Text.Substring(a.ToString().Length);
-            foreach(string nr in numereText.Split(' '))
+            foreach (string nr in numereText.Split(' '))
             {
 
-                if(int.TryParse(nr,out int aux))
+                if (int.TryParse(nr, out int aux))
                 {
                     pozitie++;
                     if (aux == a) { pozitieGasita = pozitie; break; }
@@ -188,7 +188,7 @@ namespace Fundamentele_Programarii
         }
         private void P5()
         {
-            int numere=0;
+            int numere = 0;
             int pozitie = -1;
 
             foreach (string nr in Date_Intrare.Text.Split(' '))
@@ -212,7 +212,7 @@ namespace Fundamentele_Programarii
                 {
                     if (nr == null) nr = aux;
                     else if (nr > aux) { crescatoare = false; break; }
-                    nr= aux;
+                    nr = aux;
                 }
             }
             if (crescatoare) { Date_Iesire.Text = "Sirul este crescator"; }
@@ -226,7 +226,7 @@ namespace Fundamentele_Programarii
                 if (int.TryParse(numar, out int aux))
                 {
                     if (max < aux) max = aux;
-                    if(min> aux) min = aux;
+                    if (min > aux) min = aux;
                 }
             }
             Date_Iesire.Text = $"Minimul sirului este {min} iar maximul sirului este {max}";
@@ -234,9 +234,9 @@ namespace Fundamentele_Programarii
         private void P8()
         {
             int n;
-            if (int.TryParse(Date_Intrare.Text, out n)&&n==1)
-                Date_Iesire.Text = "Primul element din sirul lui Fibonacci este "+ Fibonacci(n-1).ToString();
-            else if(n > 1) Date_Iesire.Text = $"Al {n}-lea element din sirul lui Fibonacci este " + Fibonacci(n-1).ToString();
+            if (int.TryParse(Date_Intrare.Text, out n) && n == 1)
+                Date_Iesire.Text = "Primul element din sirul lui Fibonacci este " + Fibonacci(n - 1).ToString();
+            else if (n > 1) Date_Iesire.Text = $"Al {n}-lea element din sirul lui Fibonacci este " + Fibonacci(n - 1).ToString();
             else Date_Iesire.Text = "Nu s-a putut efectua operatia, verificati datele de intrare";
 
         }
@@ -264,15 +264,15 @@ namespace Fundamentele_Programarii
                     nr = aux;
                 }
             }
-            if (crescatoare==true&&monotona) { Date_Iesire.Text = "Sirul este strict crescator"; }
-            else if(crescatoare==false&&monotona) { Date_Iesire.Text = "Sirul este strict descrescator"; }
+            if (crescatoare == true && monotona) { Date_Iesire.Text = "Sirul este strict crescator"; }
+            else if (crescatoare == false && monotona) { Date_Iesire.Text = "Sirul este strict descrescator"; }
             else Date_Iesire.Text = "Sirul nu este monoton";
         }
         private void P10()
         {
             int? nrConsecutiveMax = null;
             int nrConsecutive = 0;
-            int? nrPrecedent= null;
+            int? nrPrecedent = null;
             foreach (string nr in Date_Intrare.Text.Split(' '))
             {
 
@@ -280,21 +280,201 @@ namespace Fundamentele_Programarii
                 {
                     if (nrPrecedent == null) nrPrecedent = aux;
                     else if (nrPrecedent == aux) nrConsecutive++;
-                    else 
+                    else
                     {
                         if (nrConsecutiveMax == null) nrConsecutiveMax = nrConsecutive;
-                        else if(nrConsecutiveMax<nrConsecutive) { nrConsecutiveMax = nrConsecutive; }
-                        nrConsecutive= 1;
+                        else if (nrConsecutiveMax < nrConsecutive) { nrConsecutiveMax = nrConsecutive; }
+                        nrConsecutive = 1;
                     }
                     nrPrecedent = aux;
                 }
-                
+
             }
-            if(nrConsecutiveMax<nrConsecutive) nrConsecutiveMax=nrConsecutive;
+            if (nrConsecutiveMax < nrConsecutive) nrConsecutiveMax = nrConsecutive;
             Date_Iesire.Text = nrConsecutiveMax.ToString();
 
         }
 
+        private void P11()
+        {
+            int suma = 0;
+            foreach (string numar in Date_Intrare.Text.Split(' '))
+            {
+
+                if (int.TryParse(numar, out int aux))
+                {
+                    int nrInversat = 0;
+
+                    while (aux != 0)
+                    {
+                        nrInversat = nrInversat * 10 + aux % 10;
+                        aux /= 10;
+                    }
+                    suma += nrInversat;
+                }
+            }
+            Date_Iesire.Text = suma.ToString();
+        }
+
+        private void P12()
+        {
+            bool consecutive = true; ;
+            int? previousNumber = null;
+            int grupuriNrConsecutive = 0;
+            foreach (string numar in Date_Intrare.Text.Split(',', ' '))
+            {
+
+                if (int.TryParse(numar, out int aux))
+                {
+                    if (aux == 0)
+                    {
+                        if (previousNumber != null && consecutive == true) grupuriNrConsecutive++;
+                        previousNumber = null;
+                        continue;
+                    }
+                    if (previousNumber == null) { previousNumber = aux; consecutive = true; }
+                    else if (previousNumber >= aux) consecutive = false;
+                    previousNumber = aux;
+                }
+            }
+            Date_Iesire.Text = grupuriNrConsecutive.ToString();
+        }
+
+        private void P13()
+        {
+            bool? EsteADouaSecventaCrescatoare=null;
+            int? primulElementAlSirului=null;
+            int? ultimulElementAlSirului=null;
+            foreach (string numar in Date_Intrare.Text.Split(',', ' '))
+            {
+
+                if (int.TryParse(numar, out int aux))
+                {
+                    if(ultimulElementAlSirului!=null)
+                        if(ultimulElementAlSirului>aux && EsteADouaSecventaCrescatoare == null)
+                            EsteADouaSecventaCrescatoare= true;
+                        else if(ultimulElementAlSirului>aux&&EsteADouaSecventaCrescatoare!=null){ Date_Iesire.Text = "Secventa nu poate deveni una crescatoare prin rotire";EsteADouaSecventaCrescatoare = false; break; }
+
+
+                    if(primulElementAlSirului==null) primulElementAlSirului= aux;
+                    ultimulElementAlSirului= aux;
+                }
+            }
+            if(EsteADouaSecventaCrescatoare==null) { Date_Iesire.Text = "Secventa poate deveni una crescatoare prin rotire"; }
+
+            else if(primulElementAlSirului>=ultimulElementAlSirului&&EsteADouaSecventaCrescatoare==true)
+            {
+                Date_Iesire.Text = "Secventa poate deveni una crescatoare prin rotire";
+            }
+            else if(primulElementAlSirului < ultimulElementAlSirului && EsteADouaSecventaCrescatoare==true)
+                Date_Iesire.Text = "Secventa nu poate deveni una crescatoare prin rotire";
+        }
+        private void P14()
+        {
+            Date_Iesire.Text = "";
+            bool? EstePrimaSecventaCrescatoare = null;
+            bool? EsteADouaSecventaCrescatoare = null;
+            bool saTerminatPrimulSir = false;
+            bool EsteMonotona = true;
+            int? primulElementAlSirului = null;
+            int? ultimulElementAlSirului = null;
+            foreach (string numar in Date_Intrare.Text.Split(',', ' '))
+            {
+
+                if (int.TryParse(numar, out int aux))
+                {
+                    if (ultimulElementAlSirului != null)
+                    {
+                        if (ultimulElementAlSirului == aux) { EsteMonotona = false; break; }
+
+
+                        if (EstePrimaSecventaCrescatoare == null)
+                        {
+                            if (ultimulElementAlSirului > aux)
+                                EstePrimaSecventaCrescatoare = false;
+
+                            else if (ultimulElementAlSirului < aux)
+                                EstePrimaSecventaCrescatoare = true;
+                        }
+
+                        else if (EstePrimaSecventaCrescatoare == true && saTerminatPrimulSir == false)
+                        {
+                            if (ultimulElementAlSirului > aux)
+                                saTerminatPrimulSir = true;
+                        }
+                        else if (EstePrimaSecventaCrescatoare == false && saTerminatPrimulSir == false)
+                        {
+                            if (ultimulElementAlSirului < aux)
+                                saTerminatPrimulSir = true;
+                        }
+
+                        else if (saTerminatPrimulSir == true && EsteADouaSecventaCrescatoare == null)
+                        {
+                            if (ultimulElementAlSirului < aux)
+                                EsteADouaSecventaCrescatoare = true;
+                            else EsteADouaSecventaCrescatoare = false;
+                        }
+
+                        else if (EsteADouaSecventaCrescatoare != null)
+                        {
+                            if (ultimulElementAlSirului > aux && EsteADouaSecventaCrescatoare == true) { EsteMonotona = false; break; }
+                            else if (ultimulElementAlSirului < aux && EsteADouaSecventaCrescatoare == false) {EsteMonotona = false; break;}
+
+                        }
+                    }
+
+                    if (primulElementAlSirului == null) primulElementAlSirului = aux;
+                    ultimulElementAlSirului = aux;
+                }
+            }
+            if (!EsteMonotona) Date_Iesire.Text = "Secventa nu poate deveni una monotona prin rotire";
+            else if (EsteADouaSecventaCrescatoare == null) { Date_Iesire.Text = "Secventa poate deveni una monotona prin rotire"; }
+            else if (primulElementAlSirului > ultimulElementAlSirului&& EsteADouaSecventaCrescatoare == true|| primulElementAlSirului < ultimulElementAlSirului && EsteADouaSecventaCrescatoare == false)
+            {
+                Date_Iesire.Text = "Secventa poate deveni una monotona prin rotire";
+            }
+            else Date_Iesire.Text = "Secventa nu poate deveni una monotona prin rotire";
+
+        }
+        private void P15()
+        {
+            Date_Iesire.Text = "";
+            bool? EstePrimaSecventaCrescatoare = null;
+            bool? EsteADouaSecventaDescrescatoare = null;
+            int? ultimulElementAlSirului = null;
+            foreach (string numar in Date_Intrare.Text.Split(',', ' '))
+            {
+
+                if (int.TryParse(numar, out int aux))
+                {
+                    if (ultimulElementAlSirului != null)
+                    {
+                        if (EstePrimaSecventaCrescatoare == null)
+                        {
+                            if (ultimulElementAlSirului >= aux) { EstePrimaSecventaCrescatoare = false; break; }
+                            else EstePrimaSecventaCrescatoare = true;
+                        }
+                        else if (EsteADouaSecventaDescrescatoare == null)
+                        {
+                            if (ultimulElementAlSirului >= aux)
+                                EsteADouaSecventaDescrescatoare = true;
+                        }
+                        else if (EsteADouaSecventaDescrescatoare == true && ultimulElementAlSirului < aux)
+                        { EsteADouaSecventaDescrescatoare = false; break; }
+                    }
+                    ultimulElementAlSirului = aux;
+                }
+            }
+            if (EstePrimaSecventaCrescatoare == true && EsteADouaSecventaDescrescatoare == true)
+                Date_Iesire.Text = "Secventa data este una bitonica";
+            else Date_Iesire.Text = "Secventa data nu este una bitonica";
+
+        }
+
+        private void P16()
+        {
+
+        }
         private int Fibonacci(int n)
         {
             if(n <= 0) return 0;
