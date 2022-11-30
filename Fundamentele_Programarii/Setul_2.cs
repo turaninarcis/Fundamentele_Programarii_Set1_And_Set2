@@ -82,7 +82,7 @@ namespace Fundamentele_Programarii
                 case 15:
                     return "O secventa bitonica este o secventa de numere care incepe monoton crescator si continua monoton descrecator.\n\rDe ex. 1,2,2,3,5,4,4,3 este o secventa bitonica.\n\rSe da o secventa de n numere. Sa se determine daca este bitonica. ";
                 case 16:
-                    return "O <secventa bitonica rotita> este o secventa bitonica sau una ca poate fi transformata intr-o secventa bitonica prin rotiri succesive (rotire = primul element devine ultimul).\n\rSe da o secventa de n numere. Se cere sa se determine daca este o secventa bitonica rotita. ";
+                    return "O <secventa bitonica rotita> este o secventa bitonica sau una ca poate fi transformata intr-o secventa bitonica\n\rprin rotiri succesive (rotire = primul element devine ultimul).\n\rSe da o secventa de n numere. Se cere sa se determine daca este o secventa bitonica rotita. ";
                 case 17:
                     return "Se da o secventa de 0 si 1, unde 0 inseamna paranteza deschisa si 1 inseamna paranteza inchisa.\n\rDeterminati daca secventa reprezinta o secventa de paranteze corecta si,  daca este, determinati nivelul maxim de incuibare a parantezelor.\n\rDe exemplu 0 1 0 0 1 0 1 1 este corecta si are nivelul maxim de incuibare 2 pe cand 0 0 1 1 1 0 este incorecta. ";
                 default:

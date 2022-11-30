@@ -102,12 +102,12 @@ namespace Fundamentele_Programarii
                     }
                 case 16:
                     {
-                        //P16();
+                        P16();
                         break;
                     }
                 case 17:
                     {
-                        //P17();
+                        P17();
                         break;
                     }
 
@@ -473,8 +473,99 @@ namespace Fundamentele_Programarii
 
         private void P16()
         {
+            Date_Iesire.Text = "";
+            bool? EstePrimaSecventaCrescatoare = null;
+            bool? EsteADouaSecventaCrescatoare = null;
+            bool saTerminatPrimulSir = false;
+            bool EsteBitonica = true;
+            int? primulElementAlSirului = null;
+            int? ultimulElementAlSirului = null;
+            foreach (string numar in Date_Intrare.Text.Split(',', ' '))
+            {
+
+                if (int.TryParse(numar, out int aux))
+                {
+                    if (ultimulElementAlSirului != null)
+                    {
+                        if (EstePrimaSecventaCrescatoare == null)
+                        {
+                            if (ultimulElementAlSirului > aux)
+                                EstePrimaSecventaCrescatoare = false;
+
+                            else if (ultimulElementAlSirului < aux)
+                                EstePrimaSecventaCrescatoare = true;
+                        }
+
+                        else if (EstePrimaSecventaCrescatoare == true && saTerminatPrimulSir == false)
+                        {
+                            if (ultimulElementAlSirului > aux)
+                                saTerminatPrimulSir = true;
+                        }
+                        else if (EstePrimaSecventaCrescatoare == false && saTerminatPrimulSir == false)
+                        {
+                            if (ultimulElementAlSirului < aux)
+                                saTerminatPrimulSir = true;
+                        }
+
+                        else if (saTerminatPrimulSir == true && EsteADouaSecventaCrescatoare == null)
+                        {
+                            if (ultimulElementAlSirului < aux)
+                                EsteADouaSecventaCrescatoare = true;
+                            else EsteADouaSecventaCrescatoare = false;
+                        }
+
+                        else if (EsteADouaSecventaCrescatoare != null)
+                        {
+                            if (ultimulElementAlSirului > aux && EsteADouaSecventaCrescatoare == true&&aux<primulElementAlSirului) { EsteBitonica = false; break; }
+                            else if (ultimulElementAlSirului < aux && EsteADouaSecventaCrescatoare == false&&aux>primulElementAlSirului) { EsteBitonica = false; break; }
+
+                        }
+                    }
+
+                    if (primulElementAlSirului == null) primulElementAlSirului = aux;
+                    ultimulElementAlSirului = aux;
+                }
+
+               
+            }
+
+            if (EsteBitonica == false)
+            {
+                Date_Iesire.Text = "Secventa nu poate deveni una bitonica prin rotire";
+            }
+            else if (EstePrimaSecventaCrescatoare == true && EsteADouaSecventaCrescatoare == false || EstePrimaSecventaCrescatoare == false && EsteADouaSecventaCrescatoare == true)
+            {
+                Date_Iesire.Text = "Secventa poate deveni una bitonica prin rotire";
+            }
+            else
+                Date_Iesire.Text = "Secventa nu poate deveni una bitonica prin rotire";
+
 
         }
+
+        private void P17()
+        {
+            int numberOfOpenBrackets = 0;
+            int maxNumberOfOpenBrackets = 0;
+            int lastNumber=0;
+
+            foreach (string nr in Date_Intrare.Text.Split(' '))
+            {
+
+                if (int.TryParse(nr, out int aux))
+                {
+                    if (aux == 0) { numberOfOpenBrackets++; lastNumber = aux; }
+                    else if (aux == 1) { numberOfOpenBrackets--; lastNumber = aux; }
+                    if(numberOfOpenBrackets>maxNumberOfOpenBrackets) { maxNumberOfOpenBrackets=numberOfOpenBrackets; }
+                    if (numberOfOpenBrackets < 0) { Date_Iesire.Text = "Secventa introdusa nu reprezinta o secventa de paranteze corecta"; return; }
+                }
+                
+            }
+            if (numberOfOpenBrackets == 0&&lastNumber==1) { Date_Iesire.Text = maxNumberOfOpenBrackets.ToString(); }
+            else Date_Iesire.Text = "Secventa introdusa nu reprezinta o secventa de paranteze corecta";
+            
+        }
+
         private int Fibonacci(int n)
         {
             if(n <= 0) return 0;
