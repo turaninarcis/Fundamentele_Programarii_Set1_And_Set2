@@ -47,6 +47,7 @@
             this.Enuntul_Problemei.Size = new System.Drawing.Size(810, 100);
             this.Enuntul_Problemei.TabIndex = 0;
             this.Enuntul_Problemei.Text = "label1";
+            this.Enuntul_Problemei.Click += new System.EventHandler(this.Enuntul_Problemei_Click);
             // 
             // label2
             // 

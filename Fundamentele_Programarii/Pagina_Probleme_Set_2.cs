@@ -337,6 +337,7 @@ namespace Fundamentele_Programarii
                     previousNumber = aux;
                 }
             }
+            if (previousNumber !=null) grupuriNrConsecutive++;
             Date_Iesire.Text = grupuriNrConsecutive.ToString();
         }
 
@@ -456,7 +457,7 @@ namespace Fundamentele_Programarii
                         }
                         else if (EsteADouaSecventaDescrescatoare == null)
                         {
-                            if (ultimulElementAlSirului >= aux)
+                            if (ultimulElementAlSirului > aux)
                                 EsteADouaSecventaDescrescatoare = true;
                         }
                         else if (EsteADouaSecventaDescrescatoare == true && ultimulElementAlSirului < aux)
@@ -583,5 +584,10 @@ namespace Fundamentele_Programarii
 
         }
         #endregion
+
+        private void Enuntul_Problemei_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

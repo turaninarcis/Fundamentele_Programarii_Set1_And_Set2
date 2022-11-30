@@ -76,15 +76,15 @@ namespace Fundamentele_Programarii
                 case 12:
                     return "Cate grupuri de numere consecutive diferite de zero sunt intr-o secventa de n numere.\n\rConsiderati fiecare astfel de grup ca fiind un cuvant, zero fiind delimitator de cuvinte.\n\rDe ex. pentru secventa 1, 2, 0, 3, 4, 5, 0, 0, 6, 7, 0, 0 raspunsul este 3. ";
                 case 13:
-                    return "O <secventa crescatoare rotita> este o secventa de numere care este in ordine crescatoare sau poate fi transformata intr-o secventa in ordine crescatoare prin rotiri succesive (rotire cu o pozitie spre stanga = toate elementele se muta cu o pozitie spre stanga si primul element devine ultimul).\n\rDeterminati daca o secventa de n numere este o secventa crescatoare rotita. .";
+                    return "O <secventa crescatoare rotita> este o secventa de numere care este in ordine crescatoare sau poate fi \n\rtransformata intr-o secventa in ordine crescatoare prin rotiri succesive \n\r(rotire cu o pozitie spre stanga = toate elementele se muta cu o pozitie spre stanga si primul element devine ultimul).\n\rDeterminati daca o secventa de n numere este o secventa crescatoare rotita. .";
                 case 14:
-                    return "O <secventa monotona rotita> este o secventa de numere monotona sau poate fi transformata intr-o secventa montona prin rotiri succesive.\n\rDeterminati daca o secventa de n numere este o secventa monotona rotita.";
+                    return "O <secventa monotona rotita> este o secventa de numere monotona sau poate fi transformata intr-o secventa\n\rmontona prin rotiri succesive.Determinati daca o secventa de n numere este o secventa monotona rotita.";
                 case 15:
                     return "O secventa bitonica este o secventa de numere care incepe monoton crescator si continua monoton descrecator.\n\rDe ex. 1,2,2,3,5,4,4,3 este o secventa bitonica.\n\rSe da o secventa de n numere. Sa se determine daca este bitonica. ";
                 case 16:
-                    return "O <secventa bitonica rotita> este o secventa bitonica sau una ca poate fi transformata intr-o secventa bitonica\n\rprin rotiri succesive (rotire = primul element devine ultimul).\n\rSe da o secventa de n numere. Se cere sa se determine daca este o secventa bitonica rotita. ";
+                    return "O <secventa bitonica rotita> este o secventa bitonica sau una ca poate fi transformata intr-o secventa bitonica\n\r prin rotiri succesive (rotire = primul element devine ultimul).\n\rSe da o secventa de n numere. Se cere sa se determine daca este o secventa bitonica rotita. ";
                 case 17:
-                    return "Se da o secventa de 0 si 1, unde 0 inseamna paranteza deschisa si 1 inseamna paranteza inchisa.\n\rDeterminati daca secventa reprezinta o secventa de paranteze corecta si,  daca este, determinati nivelul maxim de incuibare a parantezelor.\n\rDe exemplu 0 1 0 0 1 0 1 1 este corecta si are nivelul maxim de incuibare 2 pe cand 0 0 1 1 1 0 este incorecta. ";
+                    return "Se da o secventa de 0 si 1, unde 0 inseamna paranteza deschisa si 1 inseamna paranteza inchisa.\n\rDeterminati daca secventa reprezinta o secventa de paranteze corecta si,daca este, determinati nivelul maxim de \n\rincuibare a parantezelor.\n\rDe exemplu 0 1 0 0 1 0 1 1 este corecta si are nivelul maxim de incuibare 2 pe cand 0 0 1 1 1 0 este incorecta. ";
                 default:
                     return "Error, problem not implemented";
 

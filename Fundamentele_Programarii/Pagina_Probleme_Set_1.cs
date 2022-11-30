@@ -353,15 +353,16 @@ namespace Fundamentele_Programarii
 
         private void P12()
         {
+            Date_Iesire.Text = "";
             int n, a, b;
             a = b = n = 1;
             try { (n, a, b) = IntroducereDate(n, a, b); }
             catch(Exception) { return; }
             int nrDivizibile = 0;
 
-            for(int i =a;i<b;i++)
+            for(int i =a;i<=b;i++)
             {
-                if (n % i == 0)
+                if (i % n == 0)
                 {
                     nrDivizibile++;
                 }
